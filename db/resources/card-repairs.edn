@@ -4832,7 +4832,9 @@
                 (or (= source
                        (java.net.URI. "https://source.windoent.com/dtcg/Picture/1773373274802BT20-060_AD01.png"))
                     (= source
-                       (java.net.URI. "https://source.windoent.com/dtcg/Picture/1773373274802BT20-060_AD01GP.png")))
+                       (java.net.URI. "https://source.windoent.com/dtcg/Picture/1773373274802BT20-060_AD01GP.png"))
+                    (= source
+                       (java.net.URI. "https://source.windoent.com/dtcg/Picture/1788154864457BT20-060_LM08.png")))
                 (assoc :card/block-icon 5)))
   "ko" (fn [card]
          (assoc card
@@ -5434,6 +5436,19 @@
                    (cond-> s
                      (not (string/includes? s "〈ルール〉"))
                      (str "\n〈ルール〉特徴:タイプ「水棲型」を持つ。")))))}
+ "BT27-033"
+ {"zh-Hans" (fn [card]
+              (update card :card/effect
+                      (fn [s]
+                        (cond-> s
+                          (not (string/includes? s "【组装"))
+                          (str "\n\n【组装-5】拥有“冰雪型”特征,且Lv.5×Lv.4×Lv.3】")))))}
+ "BT27-070"
+ {"zh-Hans" (fn [card]
+              (cond-> card
+                (and (:card/dual card)
+                     (nil? (get-in card [:card/dual :card/use-cost])))
+                (assoc-in [:card/dual :card/use-cost] 5)))}
  "BT27-085"
  {"en" (fn [{:card/keys [dual] :as card}]
          (cond-> card
@@ -5445,7 +5460,12 @@
                    :card/color [{:color/id "color/BT27-085_index0/dual"
                                  :color/index 0
                                  :color/color :purple}]
-                   :card/effect "＜Use Req. ([DATA SQUAD] trait)＞ (Specified conditions meet color requirements.)\n[Main] Your opponent trashes any 1 card from their hand or security stack. Then, delete 1 of their Digimon with a level as high as the number of cards in their hand or higher.\n[Arts Digivolve] (Instead of trashing after use, your cards may digivolve into this card without paying the cost.)"})))}
+                   :card/effect "＜Use Req. ([DATA SQUAD] trait)＞ (Specified conditions meet color requirements.)\n[Main] Your opponent trashes any 1 card from their hand or security stack. Then, delete 1 of their Digimon with a level as high as the number of cards in their hand or higher.\n[Arts Digivolve] (Instead of trashing after use, your cards may digivolve into this card without paying the cost.)"})))
+  "zh-Hans" (fn [card]
+              (cond-> card
+                (and (:card/dual card)
+                     (nil? (get-in card [:card/dual :card/use-cost])))
+                (assoc-in [:card/dual :card/use-cost] 6)))}
  "BT27-103"
  {"en" (fn [{:card/keys [effect] :as card}]
          (cond-> card
@@ -7943,6 +7963,116 @@
  "ST24-07"
  {"zh-Hans" (fn [card]
               (dissoc card :card/play-cost))}
+ "BD01-02"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 2)
+                (assoc :card/level 3)))}
+ "BD01-03"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 3)
+                (assoc :card/level 4)))}
+ "BD01-05"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 4)
+                (assoc :card/level 5)))}
+ "BD02-02"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 2)
+                (assoc :card/level 3)))}
+ "BD02-03"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 3)
+                (assoc :card/level 4)))}
+ "BD02-04"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 4)
+                (assoc :card/level 5)))}
+ "ED01-01"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 5)
+                (assoc :card/level 6)))}
+ "ED01-02"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 5)
+                (assoc :card/level 6)))}
+ "SD01-02"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 2)
+                (assoc :card/level 3)))}
+ "SD01-03"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 3)
+                (assoc :card/level 4)))}
+ "SD01-04"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 4)
+                (assoc :card/level 5)))}
+ "SD02-02"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 2)
+                (assoc :card/level 3)))}
+ "SD02-03"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 3)
+                (assoc :card/level 4)))}
+ "SD02-04"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 4)
+                (assoc :card/level 5)))}
+ "ST25-02"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 2)
+                (assoc :card/level 3)))}
+ "ST25-03"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 3)
+                (assoc :card/level 4)))}
+ "ST25-04"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 4)
+                (assoc :card/level 5)))}
+ "ST25-05"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 5)
+                (assoc :card/level 6)))}
+ "ST26-02"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 2)
+                (assoc :card/level 3)))}
+ "ST26-03"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 3)
+                (assoc :card/level 4)))}
+ "ST26-04"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 4)
+                (assoc :card/level 5)))}
+ "ST26-05"
+ {"zh-Hans" (fn [{:card/keys [level] :as card}]
+              (cond-> card
+                (= level 5)
+                (assoc :card/level 6)))}
  "P-003"
  {"en" (fn [{:card/keys [parallel-id] :as card}]
          (cond-> card
