@@ -524,7 +524,12 @@
                               "ST24" 6
                               "EX12" 6
                               "BT26" 6
-                              "EX13" 6}
+                              "EX13" 6
+                              "BT27" 6
+                              "ST25" 6
+                              "ST26" 6
+                              "BD01" 6
+                              "BD02" 6}
         saved-block-icons (->> (io/resource "block-icons.edn")
                                io/reader
                                (PushbackReader.)

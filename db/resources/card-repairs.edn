@@ -5427,6 +5427,48 @@
            (-> (dissoc :card/inherited-effect)
                (assoc :card/security-effect
                       "[Security] Play this card without paying the cost."))))}
+ "BT27-020"
+ {"ja" (fn [card]
+         (update card :card/effect
+                 (fn [s]
+                   (cond-> s
+                     (not (string/includes? s "〈ルール〉"))
+                     (str "\n〈ルール〉特徴:タイプ「水棲型」を持つ。")))))}
+ "BT27-085"
+ {"en" (fn [{:card/keys [dual] :as card}]
+         (cond-> card
+           (nil? dual)
+           (assoc :card/dual
+                  {:card/name "Mourning Dance"
+                   :card/category :option
+                   :card/use-cost 6
+                   :card/color [{:color/id "color/BT27-085_index0/dual"
+                                 :color/index 0
+                                 :color/color :purple}]
+                   :card/effect "＜Use Req. ([DATA SQUAD] trait)＞ (Specified conditions meet color requirements.)\n[Main] Your opponent trashes any 1 card from their hand or security stack. Then, delete 1 of their Digimon with a level as high as the number of cards in their hand or higher.\n[Arts Digivolve] (Instead of trashing after use, your cards may digivolve into this card without paying the cost.)"})))}
+ "BT27-103"
+ {"en" (fn [{:card/keys [effect] :as card}]
+         (cond-> card
+           (string/includes? effect "＜Raid＞")
+           (-> (assoc :card/effect
+                      "[DNA Digivolve] [Alphamon] + [Ouryumon]: Cost 0\n＜Piercing＞ ＜Security A. +1＞ ＜Blocker＞ ＜Partition ([Alphamon] & [Ouryumon])＞\n[When Digivolving] [When Attacking] [Once Per Turn] You may delete 1 of your opponent's Digimon. Then, if DNA digivolving, ＜Recovery +2＞.\n[All Turns] During attacks, your opponent's effects don't affect this Digimon.")
+               (assoc-in [:card/dual :card/effect]
+                         "[Main] Delete 1 of your opponent's Digimon. Then, 2 of your Digimon may DNA digivolve into this card.\n[Arts Digivolve] (Instead of trashing after use, your cards may digivolve into this card without paying the cost.)"))))}
+ "BT27-104"
+ {"en" (fn [card]
+         (update card :card/effect
+                 (fn [s]
+                   (-> s
+                       (string/replace " ⟨Rule⟩ Name: Also treated as [King Drasil_7D6]." "")
+                       (string/replace "Option card from under this Tamer"
+                                       "Option card from your hand or under this Tamer")))))}
+ "BT27-TOKEN"
+ {"ja" (fn [card]
+         (-> card
+             (assoc :card/category :digimon)
+             (dissoc :card/rarity)))
+  "en" (fn [card]
+         (dissoc card :card/rarity))}
  "EX1-005"
  {"zh-Hans" (fn [card]
               (update card :card/effect

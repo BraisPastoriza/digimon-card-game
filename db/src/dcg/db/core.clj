@@ -279,7 +279,12 @@
                       (string/starts-with? number "ST24-")
                       (string/starts-with? number "EX12-")
                       (string/starts-with? number "BT26-")
-                      (string/starts-with? number "EX13-"))
+                      (string/starts-with? number "EX13-")
+                      (string/starts-with? number "BT27-")
+                      (string/starts-with? number "ST25-")
+                      (string/starts-with? number "ST26-")
+                      (string/starts-with? number "BD01-")
+                      (string/starts-with? number "BD02-"))
                   (assoc :card/block-icon 6))))
          (sort-by :card/id))))
 
