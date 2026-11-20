@@ -217,7 +217,10 @@
                                                         error
                                                         correction)))))
                            c
-                           c)
+                           ;; An error of "-" means the card had no such text, so there
+                           ;; is nothing to replace: it would otherwise rewrite every
+                           ;; field with a hyphen in it, card number and id included.
+                           (if (= errors ["-"]) {} c))
                           (assoc :card/errata errata-for-card)))
                     (seq card-limitations)
                     (assoc :card/limitations card-limitations)
