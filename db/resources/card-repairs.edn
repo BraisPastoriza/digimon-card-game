@@ -7084,6 +7084,15 @@
  "LM-045"
  {"en" (fn [card]
          (dissoc card :card/form))}
+ "LM-066"
+ {"en" (fn [card]
+         (assoc card :card/block-icon 6))}
+ "LM-067"
+ {"en" (fn [card]
+         (assoc card :card/block-icon 6))}
+ "LM-068"
+ {"en" (fn [card]
+         (assoc card :card/block-icon 6))}
  "RB1-001"
  {"en" (fn [card]
          (assoc card :card/category :digi-egg))}
@@ -9278,6 +9287,16 @@
  "P-217"
  {"en" (fn [card]
          (assoc card :card/type "App Driver/Appmon"))}
+ "P-239"
+ {"en" (fn [card]
+         (assoc card :card/block-icon 6))
+  "zh-Hans" (fn [card]
+              (assoc card :card/block-icon 6))}
+ "P-240"
+ {"en" (fn [card]
+         (assoc card :card/block-icon 6))
+  "zh-Hans" (fn [card]
+              (assoc card :card/block-icon 6))}
  "P-248"
  {"en" (fn [{:card/keys [effect] :as card}]
          (cond-> card
